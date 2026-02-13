@@ -9,8 +9,29 @@
 	<title>Web App</title>
 </head>
 <body>
+<form th:action="@{/}" method="post">
+	<label>
+		<input type="text" name="text" placeholder="Введите сообщение" />
+	</label>
+	<label>
+		<input type="text" name="tag" placeholder="Тэг" />
+	</label>
+	<button type="submit">Добавить</button>
+</form>
+<h1>Список сообщений</h1>
+<table>
+	<tbody>
+	<tr th:each="message : ${messages}">
+		<td th:text="${message.tag}"></td>
+		<td th:text="${message.text}"></td>
+	</tr>
+	</tbody>
+</table>
 <div>
-	Hello, <span th:text="${text}"></span>!
+	<button type="submit">Delete all messages</button>
 </div>
+<!--<div>-->
+<!--	Hello, <span th:text="${text}"></span>!-->
+<!--</div>-->
 </body>
 </html>
